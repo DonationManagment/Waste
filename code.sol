@@ -218,7 +218,7 @@ contract DelivaryAndConsumption {
         Lotstate = LotState.EnRoute;
         emit StartDelivery (msg.sender, LotEA, block.timestamp);
     }
- function ProofofReception(uint _receivedpackages) public onlyhospital{
+ function ConfirmationofReception(uint _receivedpackages) public onlyhospital{
         require(Lotstate == LotState.EnRoute, "Can't confirm Lot reception as it is not out for delivery yet");
         require(PC_contract.BidderCommitted(msg.sender), "This hospital has not committed and therefore cannot receive the packages");
         require(!ReceptionConfirmation[msg.sender],"This hospital has already confirmed receiving their packages");
@@ -227,7 +227,7 @@ contract DelivaryAndConsumption {
         ReceivedAmount[msg.sender] = _receivedpackages; 
         emit ConfirmReception(msg.sender, LotEA, _receivedpackages, block.timestamp);
     }
-    function ProofofDelivery(address _hospital, uint _deliveredPackages) public onlyDistributor{ 
+    function ConfirmationofDelivery(address _hospital, uint _deliveredPackages) public onlyDistributor{ 
         require(_deliveredPackages == PC_contract.BidderAmount(_hospital), "Can't confrim delivery because the number of packages does not equal the bidder's committed amount");
         require(Lotstate == LotState.EnRoute, "Can't confirm Lot delivery as it is not out for delivery yet or has already been delivered");
         require(PC_contract.Distributor_Committed(msg.sender), "Only a committed distributor is allowed to deliver packages to hospital");
