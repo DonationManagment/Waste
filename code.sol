@@ -78,8 +78,8 @@ contract LotProductionCommitment {
  event DistributorCommitmentDetails(address indexed _distributor, address indexed _LotEA);
  event hospitalCommitmentDetails(address indexed hospital, address indexed _LotEA, uint _placedorder);
  event Thetimewindowisend(address indexed _msgsender, bytes32 _windowclosed);
- event ProductionApproved(bytes32 _approved, uint _currentbids, address indexed _vaccineLotEA);
- event ProductionRejected(bytes32 _denied, uint _currentbids, address indexed _vaccineLotEA);
+ event ProductionApproved(bytes32 _approved, uint _currentbids, address indexed _LotEA);
+ event ProductionRejected(bytes32 _denied, uint _currentbids, address indexed _LotEA);
  event LotProduced(address indexed _manufacturer, address indexed _LotEA, bytes32 _MedicalSupplyType,
  uint _currentbids, uint _productionTime, uint _deliveryduration, uint _expirydate); 
 
